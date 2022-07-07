@@ -1,3 +1,5 @@
+
+///SOLUTION1
 class Solution {
     public boolean isAnagram(String s, String t) {
         int n=s.length();
@@ -15,6 +17,33 @@ class Solution {
         for(int i=0;i<n;i++)
         {
             if(tempArray[i]!=tempArray1[i])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+///SOLUTION2
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        int n=s.length();
+        int m=t.length();
+        if(n!=m)
+        {
+            return false;
+        }
+        int[] arr=new int[26];
+        for(int i=0;i<n;i++)
+        {
+            arr[s.charAt(i) -'a']++;
+            arr[t.charAt(i) -'a']--;
+
+        }
+        for(int i :arr)
+        {
+            if(i!=0)
             {
                 return false;
             }
